@@ -26,7 +26,7 @@ def load_config(path=None):
                 # Probably relative
                 abs_path = os.path.join(BASEDIR, cfg.get('packaging')[path])
                 if not os.path.exists(abs_path):
-                    raise Exception(f'Unable to find a valid path for {path}')
+                    raise Exception(f'Unable to find a valid path for {path}:{cfg.get("packaging")[path]}')
                 cfg.get('packaging')[path] = abs_path
 
         return cfg
