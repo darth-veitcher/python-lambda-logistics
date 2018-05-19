@@ -56,3 +56,12 @@ packaging:
 
 You can then run `python -m pll` and package the application from any script. As an additional option pass in the 
 `--config` switch to define your own config file.
+
+In addition, relative paths to the `cwd` are accepted. These are then converted to absolute paths at runtime E.g.
+
+```yaml
+packaging:
+  app_root: ''  # current directory
+  build_path: 'build/'  # current directory/build
+  dist_path: 'dist/'  # current directory/dist
+```

@@ -20,6 +20,15 @@ def load_config(path=None):
     with open(config_path) as ymlfile:
         cfg = yaml.load(ymlfile)
         print(cfg)
+
+        for path in cfg.get('packaging'):
+            if not os.path.exists(path):
+                # Probably relative
+                abs_path = os.path.join(BASEDIR, cfg.get('packaging')[path])
+                if not os.path.exists(abs_path):
+                    raise Exception(f'Unable to find a valid path for {path}')
+                cfg.get('packaging')[path] = abs_path
+
         return cfg
 
 
@@ -37,4 +46,4 @@ def get_cli_args(config_path=None):
 
 def package(config_path=None):
     """Packages up application for AWS deployment using docker"""
-    subprocess.run(get_cli_args(config_path), shell=True, check=True)
+    subprocess.run(get_cli_args(config_path), shell=True, check=False)
