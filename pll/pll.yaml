@@ -1,0 +1,4 @@
+packaging:
+  app_root: '/tmp/app/src'
+  build_path: '/tmp/app/build'
+  dist_path: '/tmp/app/dist'
