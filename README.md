@@ -7,7 +7,14 @@ are known as 'deployment packages' (zip files with all dependencies) for pushing
 These packages require that the libraries are compiled for amazon's version of linux (which is executing the code on 
 your behalf).
 
-Not helpful if your development machine isn't running AWS Linux...
+Not helpful if, like me, your development machine isn't running AWS Linux...
+
+Some of the main libraries this has helped me so far with packaging:
+
+* SQLAlchemy
+* Pandas
+* NumPy
+
 
 ## Underlying Process
 `pll` aims to simplify the above by automating the build of your `requirements.txt` file in a `Docker` image of 
@@ -23,6 +30,7 @@ Not helpful if your development machine isn't running AWS Linux...
     * YourAppplicationRoot --> /app
 4. Run the container and compile
 5. Shutdown and £profit
+6. (Opt) push code to AWS (Coming soon)
 
 The original Dockerfile used to create the image is contained within the package source code for those who want to hack 
 their own.
