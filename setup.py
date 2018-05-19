@@ -30,7 +30,8 @@ setup(
     packages=['pll'],
     zip_safe=False,
     install_requires=[
-
+        'pyaml',
+        'jinja2',
     ],
     package_data={
         # If any package contains *.txt, *.rst files, *.j2 include them:
