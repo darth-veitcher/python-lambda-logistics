@@ -3,8 +3,7 @@ import yaml
 from jinja2 import Environment, PackageLoader, select_autoescape
 import subprocess
 
-
-BASEDIR = os.path.abspath(os.path.dirname(__file__))
+BASEDIR = os.getcwd()
 
 
 def load_config(path=None):
@@ -36,6 +35,6 @@ def get_cli_args(config_path=None):
     return template.render(cfg.get('packaging'))
 
 
-def package():
+def package(config_path=None):
     """Packages up application for AWS deployment using docker"""
-    subprocess.run(get_cli_args(), shell=True, check=True)
+    subprocess.run(get_cli_args(config_path), shell=True, check=True)

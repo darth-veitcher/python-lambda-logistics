@@ -36,6 +36,7 @@ The original Dockerfile used to create the image is contained within the package
 their own.
 
 ## Usage
+To manually run and configure the docker container use the below command. 
 ```bash
 docker run --rm --name py-lamb-compiler \
     -v ~/my/app:/app \
@@ -43,3 +44,15 @@ docker run --rm --name py-lamb-compiler \
     -v ~/my/app/build:/tmp/app/build \
     saracen9/python-lambda
 ```
+
+Alternatively install the library and put a `pll.yaml` in the root of your application.
+
+```yaml
+packaging:
+  app_root: '/my/app'
+  build_path: '/my/app/build'
+  dist_path: '/my/app/dist'
+```
+
+You can then run `python -m pll` and package the application from any script. As an additional option pass in the 
+`--config` switch to define your own config file.

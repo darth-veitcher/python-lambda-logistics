@@ -1,0 +1,5 @@
+Jinja2==2.10
+MarkupSafe==1.0
+pyaml==17.12.1
+pypandoc==1.4
+PyYAML==3.12

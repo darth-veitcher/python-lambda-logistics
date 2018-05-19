@@ -1,8 +1,8 @@
-from setuptools import setup
+from setuptools import setup, find_packages
 import os
 import pypandoc
 
-import pylambd.__about__ as about
+import pll.__about__ as about
 
 
 current_dir = os.path.abspath(os.path.dirname(__file__))
@@ -27,11 +27,18 @@ setup(
     author_email='james@jamesveitch.com',
     description=about.__description__,
     long_description=long_description if long_description else None,
-    packages=['python-0lambda-logistics'],
+    packages=['pll'],
     zip_safe=False,
     install_requires=[
 
     ],
+    package_data={
+        # If any package contains *.txt, *.rst files, *.j2 include them:
+        # https://setuptools.readthedocs.io/en/latest/setuptools.html#including-data-files
+        '': ['*.txt', '*.rst', '*.j2'],
+        # And all of the templates directory for pll
+        'pll': ['templates/*']
+    },
     include_package_data=True,
     platforms='any',
     classifiers = [
